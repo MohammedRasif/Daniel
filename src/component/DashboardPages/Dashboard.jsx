@@ -226,7 +226,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            {/* Button clicks */}
+            
             <div className="bg-white p-4 rounded-lg">
               <h2 className="text-[20px] text-gray-600 mb-2">Button clicks</h2>
               <div className="flex justify-between items-center">
