@@ -7,6 +7,7 @@ import { MdCompost } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
 import { TbDeviceMobileCog } from "react-icons/tb";
+import { CiMemoPad } from "react-icons/ci";
 
 const DashboardSidebar = () => {
   const location = useLocation();
@@ -84,9 +85,9 @@ const DashboardSidebar = () => {
           to="/dashboard/team"
           className={({ isActive }) => navLinkStyle(isActive)}
         >
-          <RiTeamFill className="h-6 w-6 transition-transform duration-200 group-hover:scale-110" />
+          <CiMemoPad className="h-6 w-6 transition-transform duration-200 group-hover:scale-110" />
           <h1 className="text-lg font-medium transition-transform duration-200 group-hover:scale-105">
-            Team
+          My Membership
           </h1>
         </NavLink>
         <NavLink
@@ -95,27 +96,10 @@ const DashboardSidebar = () => {
         >
           <MdCompost className="h-6 w-6 transition-transform duration-200 group-hover:scale-110" />
           <h1 className="text-lg font-medium transition-transform duration-200 group-hover:scale-105">
-            Post Project
+          My Business
           </h1>
         </NavLink>
-        <NavLink
-          to="/dashboard/manageSubscription"
-          className={({ isActive }) => navLinkStyle(isActive)}
-        >
-          <Clock className="h-6 w-6 transition-transform duration-200 group-hover:scale-110" />
-          <h1 className="text-lg font-medium transition-transform duration-200 group-hover:scale-105">
-            Manage subscription
-          </h1>
-        </NavLink>
-        <NavLink
-          to="/dashboard/setting"
-          className={({ isActive }) => navLinkStyle(isActive)}
-        >
-          <Settings className="h-6 w-6 transition-transform duration-200 group-hover:scale-110" />
-          <h1 className="text-lg font-medium transition-transform duration-200 group-hover:scale-105">
-            Setting
-          </h1>
-        </NavLink>
+        
       </div>
     </div>
   );
