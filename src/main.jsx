@@ -10,6 +10,8 @@ import ErrorPage from './component/ErrorPage/ErrorPage.jsx';
 import Home from './component/Home/Home.jsx';
 import DashboardLayout from './component/DashboardLayout/DashboardLayout.jsx';
 import Dashboard from './component/DashboardPages/Dashboard.jsx';
+import CoustomApp from './component/DashboardPages/CoustomApp.jsx';
+import Marketing from './component/DashboardPages/Marketing.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +33,15 @@ const router = createBrowserRouter([
       {
         index:true,
         element:<Dashboard/>
-      }
+      },
+      {
+        path:"/dashboard/custom_app",
+        element:<CoustomApp/>
+      },
+      {
+        path:"/dashboard/markeding",
+        element:<Marketing/>
+      },
     ]
   }
 ]);

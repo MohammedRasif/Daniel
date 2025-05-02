@@ -6,10 +6,10 @@ import { RiTeamFill } from "react-icons/ri";
 import { MdCompost } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
+import { TbDeviceMobileCog } from "react-icons/tb";
 
 const DashboardSidebar = () => {
   const location = useLocation();
-  const isProjectActive = location.pathname.startsWith("/dashboard/Project");
 
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("darkMode") === "true" || false;
@@ -29,7 +29,6 @@ const DashboardSidebar = () => {
     setDarkMode(!darkMode);
   };
 
-  // Updated NavLink styling function
   const navLinkStyle = (isActive) => `
     flex items-center gap-3 px-4 py-3 relative mx-5 my-1 rounded-md
     ${isActive
@@ -64,21 +63,21 @@ const DashboardSidebar = () => {
           </h1>
         </NavLink>
         <NavLink
-          to="/dashboard/chat"
+          to="/dashboard/custom_app"
           className={({ isActive }) => navLinkStyle(isActive)}
         >
-          <Bot className="h-6 w-6 transition-transform duration-200 group-hover:scale-110" />
+          <TbDeviceMobileCog className="h-6 w-6 transition-transform duration-200 group-hover:scale-110" />
           <h1 className="text-lg font-medium transition-transform duration-200 group-hover:scale-105">
-            Ai Assistant
+            My Custom Apps
           </h1>
         </NavLink>
         <NavLink
-          to="/dashboard/Project"
-          className={() => navLinkStyle(isProjectActive)}
+          to="/dashboard/markeding"
+          className={({ isActive }) => navLinkStyle(isActive)}
         >
           <Briefcase className="h-6 w-6 transition-transform duration-200 group-hover:scale-110" />
           <h1 className="text-lg font-medium transition-transform duration-200 group-hover:scale-105">
-            Project
+            Markeding
           </h1>
         </NavLink>
         <NavLink

@@ -3,7 +3,6 @@ import { useState } from "react";
 import DashboardSidebar from "../DashboardSidebar/DashboardSidebar";
 import DashboardNavbar from "../DashboardNavbar/DashboardNavbar";
 
-
 const DashboardLayout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
@@ -11,35 +10,31 @@ const DashboardLayout = () => {
         <div className="flex h-screen">
             {/* Sidebar */}
             <div
-                className={`bg-[#20325A] dark:bg-[#1E232E] h-full fixed ease-in-out ${isSidebarOpen ? "w-[320px]" : "w-16"
-                    }`}
+                className={`bg-[#20325A] dark:bg-[#1E232E] h-full fixed ease-in-out ${isSidebarOpen ? "w-72" : "w-16"}`}
             >
                 <div className="h-full flex flex-col justify-between">
                     {/* Sidebar Content */}
                     <DashboardSidebar />
-
-                    
                 </div>
             </div>
 
             {/* Main Content Area */}
             <div
-                className={`flex flex-col  ${isSidebarOpen ? "ml-[320px] w-[calc(100%-320px)]" : "ml-16 w-[calc(100%-64px)]"
-                    }`}
+                className={`flex flex-col w-full ${isSidebarOpen ? "ml-72" : "ml-16"}`}
             >
                 {/* Navbar - Fixed & Only Navbar BG White */}
                 <div
-                    className="fixed top-0 z-50 bg-white dark:bg-[#1E232E]    w-full border-b border-gray-200 dark:border-gray-600  "
+                    className="fixed top-0 z-50 bg-white dark:bg-[#1E232E] w-full border-b border-gray-200 dark:border-gray-600"
                     style={{
-                        left: isSidebarOpen ? "320px" : "64px",
-                        width: isSidebarOpen ? "calc(100%-320px)" : "calc(100%-64px)",
+                        left: isSidebarOpen ? "288px" : "64px",
+                        width: isSidebarOpen ? "calc(100% - 288px)" : "calc(100% - 64px)",
                     }}
                 >
                     <DashboardNavbar />
                 </div>
 
                 {/* Outlet (Main Content) */}
-                <div className="h-full mt-16 overflow-auto bg-white dark:bg-[#252c3b]  ">
+                <div className="h-full mt-16 overflow-auto bg-[#F7F9FF] dark:bg-[#252c3b] p-4">
                     <Outlet />
                 </div>
             </div>
@@ -48,6 +43,3 @@ const DashboardLayout = () => {
 };
 
 export default DashboardLayout;
-
-
-
