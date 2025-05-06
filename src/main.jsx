@@ -12,6 +12,7 @@ import DashboardLayout from './component/DashboardLayout/DashboardLayout.jsx';
 import Dashboard from './component/DashboardPages/Dashboard.jsx';
 import CoustomApp from './component/DashboardPages/CoustomApp.jsx';
 import Marketing from './component/DashboardPages/Marketing.jsx';
+import Membership from './component/DashboardPages/Membership.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path:"/dashboard/markeding",
         element:<Marketing/>
+      },
+      {
+        path:"/dashboard/membership",
+        element:<Membership/>
       },
     ]
   }

@@ -1,11 +1,8 @@
-import { Phone, Mail, Globe, MapPin } from "lucide-react";
-import vectorImage from "../../image/Vector 78.png"; // Ensure this path is correct
-const cloudinaryImage = "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg";
+import { Phone, Mail, Globe, MapPin } from "lucide-react"
 
 const Poster = () => {
   return (
-    <div className="relative w-full overflow-hidden">
-      {/* Flex container for left and right sections */}
+    <div className="relative w-full   overflow-hidden">
       <div className="flex flex-col md:flex-row">
         {/* Left content section */}
         <div className="w-full md:w-1/2 p-8 z-10">
@@ -19,12 +16,7 @@ const Poster = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
             <span className="text-2xl font-bold text-navy-800">WePro</span>
@@ -37,7 +29,8 @@ const Poster = () => {
           <p className="text-gray-500 mb-12">
             Lorem ipsum dolor sit amet consectetur. Facilisi suspendisse elit vitae quis sed pulvinar facilisi ipsum
             viverra. Id vestibulum quisque in neque. Scelerisque ornare erat urna massa. Phasellus arcu condimentum
-            pellentesque nibh senectus vulputate malesuada dictumst felis.
+            pellentesque nibh senectus vulputate malesuada dictumst felis. nibh senectus vulputate malesuada dictumst
+            felis. nibh senectus vulputate malesuada dictumst felis.
           </p>
 
           {/* Contact section */}
@@ -53,7 +46,7 @@ const Poster = () => {
                 <span className="text-gray-500">youremail@yahoo.com</span>
               </div>
               <div className="flex items-center">
-                <Globe className="h-4 w-4 text-gray Kiel-gray-500 mr-2" />
+                <Globe className="h-4 w-4 text-gray-500 mr-2" />
                 <span className="text-gray-500">www.yourweb.com</span>
               </div>
               <div className="flex items-center">
@@ -68,33 +61,36 @@ const Poster = () => {
             <h2 className="text-xl font-semibold text-pink-500 mb-4">App link</h2>
             <div className="flex items-center">
               <div className="mr-4">
-                <img src={vectorImage} alt="QR Code" className="w-16 h-16" />
+                <img
+                  src="/placeholder.svg?height=100&width=100"
+                  alt="QR Code"
+                  width={100}
+                  height={100}
+                  className="border border-gray-300"
+                />
               </div>
-              <div className="text-gray-500 text-sm">https://www.google.com/search?q=qr+code+png</div>
+              <div className="text-gray-500 text-sm">https://www.google.com/search?q=qr+code+png&...</div>
             </div>
           </div>
         </div>
 
-        {/* Right image section */}
-        {/* Right image section */}
-        <div className="w-full md:w-1/2 relative z-0">
-          <div className="h-full w-full relative ">
-            {/* Pink curved border */}
-            <div className="absolute inset-0  rounded-l-[120px] z-10"></div>
+        {/* Right image section with curved border */}
+        <div className="w-full md:w-1/2 relative">
+          {/* This is the pink curved border container */}
+          {/* <div className="absolute top-0 right-0 bottom-0 left-0 bg-pink-500 rounded-l-[200px]"></div> */}
 
-            {/* Food image */}
-            <div className="absolute inset-0 z-20 flex justify-center items-center">
-              <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-jR79S4vxKZtZEDUPGm5cToJdnoq4OM.png"
-                alt="Food image"
-                className="h-full w-full "
-              />
-            </div>
+          {/* This is the image container that respects the curved border */}
+          <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden rounded-l-[260px]">
+            <img
+              src="https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg"
+              alt="Food image"
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Poster;
+export default Poster

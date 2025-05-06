@@ -82,7 +82,7 @@ const DashboardSidebar = () => {
           </h1>
         </NavLink>
         <NavLink
-          to="/dashboard/team"
+          to="/dashboard/membership"
           className={({ isActive }) => navLinkStyle(isActive)}
         >
           <CiMemoPad className="h-6 w-6 transition-transform duration-200 group-hover:scale-110" />
