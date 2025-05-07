@@ -13,6 +13,7 @@ import Dashboard from './component/DashboardPages/Dashboard.jsx';
 import CoustomApp from './component/DashboardPages/CoustomApp.jsx';
 import Marketing from './component/DashboardPages/Marketing.jsx';
 import Membership from './component/DashboardPages/Membership.jsx';
+import BrandSetUp from './component/DashboardPages/BrandSetUp.jsx';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path:"/dashboard/membership",
         element:<Membership/>
+      },
+      {
+        path:"/dashboard/brandSetUp",
+        element:<BrandSetUp/>
       },
     ]
   }

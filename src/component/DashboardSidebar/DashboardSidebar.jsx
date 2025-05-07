@@ -128,7 +128,7 @@ const DashboardSidebar = () => {
           {isBusinessOpen && (
             <div className="ml-10 flex flex-col gap-[1px]">
               <NavLink
-                to="/dashboard/post_project/brand_setup"
+                to="/dashboard/brandSetUp"
                 className={({ isActive }) => navLinkStyle(isActive)}
               >
                 <h1 className="text-base font-medium transition-transform duration-200 group-hover:scale-105">
