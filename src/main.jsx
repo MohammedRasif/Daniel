@@ -1,81 +1,67 @@
-import React, { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Roots from './Root/Roots.jsx';
-import ErrorPage from './component/ErrorPage/ErrorPage.jsx';
-import Home from './component/Home/Home.jsx';
-import DashboardLayout from './component/DashboardLayout/DashboardLayout.jsx';
-import Dashboard from './component/DashboardPages/Dashboard.jsx';
-import CoustomApp from './component/DashboardPages/CoustomApp.jsx';
-import Marketing from './component/DashboardPages/Marketing.jsx';
-import Membership from './component/DashboardPages/Membership.jsx';
-import BrandSetUp from './component/DashboardPages/BrandSetUp.jsx';
-<<<<<<< HEAD
-import Chatbot from './component/DashboardPages/Chatbot.jsx';
-=======
-import DashboardCustomAppNew from './component/DashboardCustomNew/DashboardCustomAppNew.jsx';
->>>>>>> 5dfadf9d4192b696ab80dcd87bb464ef157c18ab
+import React, { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Roots from "./Root/Roots.jsx";
+import ErrorPage from "./component/ErrorPage/ErrorPage.jsx";
+import Home from "./component/Home/Home.jsx";
+import DashboardLayout from "./component/DashboardLayout/DashboardLayout.jsx";
+import Dashboard from "./component/DashboardPages/Dashboard.jsx";
+import CoustomApp from "./component/DashboardPages/CoustomApp.jsx";
+import Marketing from "./component/DashboardPages/Marketing.jsx";
+import Membership from "./component/DashboardPages/Membership.jsx";
+import BrandSetUp from "./component/DashboardPages/BrandSetUp.jsx";
+import DashboardCustomAppNew from "./component/DashboardCustomNew/DashboardCustomAppNew.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<Roots/> ,
-    errorElement:<ErrorPage/>,
+    element: <Roots />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
-        element:<Home/> ,
+        element: <Home />,
       },
     ],
   },
 
   {
-    path:"/dashboard",
-    element:<DashboardLayout/>,
-    children:[
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
       {
-        index:true,
-        element:<Dashboard/>
+        index: true,
+        element: <Dashboard />,
       },
       {
-        path:"/dashboard/custom_app",
-        element:<CoustomApp/>
+        path: "/dashboard/custom_app",
+        element: <CoustomApp />,
       },
       {
-        path:"/dashboard/markeding",
-        element:<Marketing/>
+        path: "/dashboard/markeding",
+        element: <Marketing />,
       },
       {
-        path:"/dashboard/membership",
-        element:<Membership/>
+        path: "/dashboard/membership",
+        element: <Membership />,
       },
       {
-        path:"/dashboard/brandSetUp",
-        element:<BrandSetUp/>
-<<<<<<< HEAD
+        path: "/dashboard/brandSetUp",
+        element: <BrandSetUp />,
       },
       {
-        path:"/dashboard/chatbot",
-        element:<Chatbot/>
+        path: "/dashboard/custom_app/new",
+        element: <DashboardCustomAppNew />,
       },
-=======
-      },{
-        path:"/dashboard/custom_app/new",
-        element:<DashboardCustomAppNew/>
-      }
->>>>>>> 5dfadf9d4192b696ab80dcd87bb464ef157c18ab
-    ]
-  }
+    ],
+  },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-  </StrictMode>,
-)
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  </StrictMode>
+);
