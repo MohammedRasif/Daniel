@@ -1,12 +1,10 @@
 
 import { NavLink, useLocation } from "react-router-dom";
 import img from "../Navbar/image 3.png";
-import { Bot, Briefcase, Clock, Settings } from "lucide-react";
+import { Briefcase,  } from "lucide-react";
 import { BiSolidDashboard } from "react-icons/bi";
-import { RiTeamFill } from "react-icons/ri";
 import { MdCompost } from "react-icons/md";
 import { useState, useEffect } from "react";
-import { Moon, Sun } from "lucide-react";
 import { TbDeviceMobileCog } from "react-icons/tb";
 import { CiMemoPad } from "react-icons/ci";
 import { GoChevronRight } from "react-icons/go";
@@ -14,24 +12,6 @@ import { GoChevronRight } from "react-icons/go";
 const DashboardSidebar = () => {
   const location = useLocation();
   const [isBusinessOpen, setIsBusinessOpen] = useState(false);
-
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("darkMode") === "true" || false;
-  });
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("darkMode", "true");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("darkMode", "false");
-    }
-  }, [darkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
 
   const toggleBusinessMenu = () => {
     setIsBusinessOpen(!isBusinessOpen);
@@ -136,7 +116,7 @@ const DashboardSidebar = () => {
                 </h1>
               </NavLink>
               <NavLink
-                to="/dashboard/post_project/ai_chatbot_setup"
+                to="/dashboard/chatbot"
                 className={({ isActive }) => navLinkStyle(isActive)}
               >
                 <h1 className="text-base font-medium transition-transform duration-200 group-hover:scale-105">
