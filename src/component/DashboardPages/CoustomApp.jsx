@@ -4,6 +4,7 @@ import { GoArrowLeft } from "react-icons/go";
 import { FaCloudDownloadAlt, FaEdit } from "react-icons/fa";
 import { Phone, Mail, Globe, MapPin } from "lucide-react";
 import html2canvas from "html2canvas";
+import { Link } from "react-router-dom";
 
 const CustomApp = () => {
   const popupRef = useRef(null); // Reference to the entire popup content
@@ -153,7 +154,7 @@ const CustomApp = () => {
         ))}
 
         {/* Create New App Card */}
-        <div className="bg-white p-5 rounded-lg shadow-sm flex flex-col items-center justify-center min-h-[220px]">
+        <Link to="/dashboard/custom_app/new" className="bg-white p-5 rounded-lg shadow-sm flex flex-col items-center justify-center min-h-[220px]">
           <div className="bg-gray-100 rounded-full p-4 mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +173,7 @@ const CustomApp = () => {
             </svg>
           </div>
           <p className="text-gray-700 font-medium">Create New App</p>
-        </div>
+        </Link>
       </div>
 
       {/* Popup Overlay */}
