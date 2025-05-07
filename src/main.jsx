@@ -14,6 +14,7 @@ import CoustomApp from './component/DashboardPages/CoustomApp.jsx';
 import Marketing from './component/DashboardPages/Marketing.jsx';
 import Membership from './component/DashboardPages/Membership.jsx';
 import BrandSetUp from './component/DashboardPages/BrandSetUp.jsx';
+import Chatbot from './component/DashboardPages/Chatbot.jsx';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path:"/dashboard/brandSetUp",
         element:<BrandSetUp/>
+      },
+      {
+        path:"/dashboard/chatbot",
+        element:<Chatbot/>
       },
     ]
   }
