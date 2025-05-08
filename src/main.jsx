@@ -13,6 +13,7 @@ import Membership from "./component/DashboardPages/Membership.jsx";
 import BrandSetUp from "./component/DashboardPages/BrandSetUp.jsx";
 import DashboardCustomAppNew from "./component/DashboardCustomNew/DashboardCustomAppNew.jsx";
 import Preview from "./component/DashboardPreview/Preview.jsx";
+import Login from "./component/Pages/login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         element: <Home />,
       },
     ],
+  },
+  {
+    path:"/login",
+    element:<Login/>
   },
 
   {
