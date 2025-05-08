@@ -1,4 +1,4 @@
-import { Phone, Mail, Globe, MapPin } from "lucide-react"
+import { Phone, Mail, Globe, MapPin } from "lucide-react";
 
 const Poster = () => {
   return (
@@ -16,26 +16,37 @@ const Poster = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
               </svg>
             </div>
             <span className="text-2xl font-bold text-navy-800">WePro</span>
           </div>
 
           {/* Main title */}
-          <h1 className="text-4xl font-bold text-navy-800 mb-6">Title will be displayed here</h1>
+          <h1 className="text-4xl font-bold text-navy-800 mb-6">
+            Title will be displayed here
+          </h1>
 
           {/* Description text */}
           <p className="text-gray-500 mb-12">
-            Lorem ipsum dolor sit amet consectetur. Facilisi suspendisse elit vitae quis sed pulvinar facilisi ipsum
-            viverra. Id vestibulum quisque in neque. Scelerisque ornare erat urna massa. Phasellus arcu condimentum
-            pellentesque nibh senectus vulputate malesuada dictumst felis. nibh senectus vulputate malesuada dictumst
-            felis. nibh senectus vulputate malesuada dictumst felis.
+            Lorem ipsum dolor sit amet consectetur. Facilisi suspendisse elit
+            vitae quis sed pulvinar facilisi ipsum viverra. Id vestibulum
+            quisque in neque. Scelerisque ornare erat urna massa. Phasellus arcu
+            condimentum pellentesque nibh senectus vulputate malesuada dictumst
+            felis. nibh senectus vulputate malesuada dictumst felis. nibh
+            senectus vulputate malesuada dictumst felis.
           </p>
 
           {/* Contact section */}
           <div className="mb-8">
-            <h2 className="text-xl font-semibold text-pink-500 mb-4">Contact Us</h2>
+            <h2 className="text-xl font-semibold text-pink-500 mb-4">
+              Contact Us
+            </h2>
             <div className="space-y-2">
               <div className="flex items-center">
                 <Phone className="h-4 w-4 text-gray-500 mr-2" />
@@ -51,14 +62,18 @@ const Poster = () => {
               </div>
               <div className="flex items-center">
                 <MapPin className="h-4 w-4 text-gray-500 mr-2" />
-                <span className="text-gray-500">Banasree, Dhaka, Bangladesh.</span>
+                <span className="text-gray-500">
+                  Banasree, Dhaka, Bangladesh.
+                </span>
               </div>
             </div>
           </div>
 
           {/* QR code and App link */}
           <div>
-            <h2 className="text-xl font-semibold text-pink-500 mb-4">App link</h2>
+            <h2 className="text-xl font-semibold text-pink-500 mb-4">
+              App link
+            </h2>
             <div className="flex items-center">
               <div className="mr-4">
                 <img
@@ -69,7 +84,9 @@ const Poster = () => {
                   className="border border-gray-300"
                 />
               </div>
-              <div className="text-gray-500 text-sm">https://www.google.com/search?q=qr+code+png&...</div>
+              <div className="text-gray-500 text-sm">
+                https://www.google.com/search?q=qr+code+png&...
+              </div>
             </div>
           </div>
         </div>
@@ -80,17 +97,30 @@ const Poster = () => {
           {/* <div className="absolute top-0 right-0 bottom-0 left-0 bg-pink-500 rounded-l-[200px]"></div> */}
 
           {/* This is the image container that respects the curved border */}
-          <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden rounded-l-[260px]">
+
+          <div className="w-full h-full">
             <img
+              src="/shape.png"
+              alt=""
+              className="h-full w-full absolute top-0 right-0 z-10"
+            />
+            <img
+              className="h-full w-full absolute top-0 right-0"
               src="https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg"
-              alt="Food image"
-              className="h-full w-full object-cover"
+              alt=""
             />
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Poster
+export default Poster;
+{
+  /* <img
+                src="https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg"
+                alt="Food image"
+                className=""
+              /> */
+}
