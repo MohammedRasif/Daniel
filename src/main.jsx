@@ -14,6 +14,8 @@ import BrandSetUp from "./component/DashboardPages/BrandSetUp.jsx";
 import DashboardCustomAppNew from "./component/DashboardCustomNew/DashboardCustomAppNew.jsx";
 import Preview from "./component/DashboardPreview/Preview.jsx";
 import Login from "./component/Pages/login.jsx";
+import Register from "./component/Pages/Register.jsx";
+import ForgetPassword from "./component/Pages/ForgetPassword.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
   {
     path:"/login",
     element:<Login/>
+  },
+  {
+    path:"/register",
+    element:<Register/>
+  },
+  {
+    path:"/forget_password",
+    element:<ForgetPassword/>
   },
 
   {
