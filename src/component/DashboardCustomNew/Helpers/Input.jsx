@@ -19,10 +19,10 @@ export default function Input({
       <input
         type={type}
         id={id}
-        value={value}
+        {...(type !== "file" ? { value } : {})} // omit value if file
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#4E5C7B] focus:border-[#4E5C7B] placeholder-gray-400 ${className}`}
+        className={`bg-white w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#4E5C7B] focus:border-[#4E5C7B] placeholder-gray-400 ${className}`}
       />
     </div>
   );
