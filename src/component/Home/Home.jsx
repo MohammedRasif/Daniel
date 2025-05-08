@@ -1,6 +1,15 @@
+import {
+  FiGlobe,
+  FiLogIn,
+  FiMail,
+  FiMapPin,
+  FiPhone,
+  FiUsers,
+} from "react-icons/fi";
 import Footer from "../Footer/Footer";
 import HeroSection from "./HeroSection/HeroSection";
 import ProductCard from "./ProductCard/ProductCard";
+import { Link } from "lucide-react";
 
 const Home = () => {
   const products = [
@@ -61,10 +70,97 @@ const Home = () => {
       price: "6.99$",
     },
   ];
+  const app = {
+    name: "App name will be displayed here",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Pellentesque eu tempor rhoncus elementum. Massa fringilla sit egestas at at. Orci mauris nisl eu suspendisse blandit nec dictumst integer sit. Morbi ut euismod blandit nisl semper in in diam ac. Dui quis est consectetur libero quam tempor mi in. Praesent et ",
+    details: {
+      number: "+8801300000000",
+      email: "example@gamil.com",
+      web: "www.example.com",
+      location: "Banasree, Dhaka, Bangladesh.",
+    },
+    onTime: {
+      start: "10:30 AM",
+      end: "7:30 PM",
+    },
+  };
   return (
     <div className="noto">
+      {/* we can pass background and title to the HeroSection */}
+      {/* <HeroSection
+        bg={
+          "https://i.ibb.co.com/3YyNxcSV/beautiful-shot-waterfall-coming-down-from-mountains.jpg"
+        }
+        title={`Title of the app will be here Title of the app will be here Title of the app will be`}
+      /> */}
       <HeroSection />
       <div className="flex justify-center flex-col items-center py-8 px-4 md:px-16">
+        <div>
+          <div>
+            <h1 className="text-2xl text-[#444863] mb-4">{app?.name}</h1>
+            <p className="text-[#828396]">{app?.description}</p>
+          </div>
+          <div className="bg-white rounded-lg shadow-md p-4 w-full max-w-4xl mx-auto mb-6 md:10">
+            <div className="flex flex-col sm:flex-row">
+              {/* Contact Details */}
+              <div className="mb-4 sm:mb-0 flex-1/2">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  Contact Details
+                </h3>
+                <div className="space-y-2 flex gap-4 flex-col md:flex-row">
+                  <div>
+                    <div className="flex items-center">
+                      <FiPhone className="text-gray-500 mr-2" size={16} />
+                      <span className="text-sm text-gray-600">0123456789</span>
+                    </div>
+                    <div className="flex items-center">
+                      <FiMail className="text-gray-500 mr-2" size={16} />
+                      <span className="text-sm text-gray-600">
+                        youremail@yahoo.com
+                      </span>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex items-center">
+                      <FiGlobe className="text-gray-500 mr-2" size={16} />
+                      <span className="text-sm text-gray-600">
+                        www.example.com
+                      </span>
+                    </div>
+                    <div className="flex items-center">
+                      <FiMapPin className="text-gray-500 mr-2" size={16} />
+                      <span className="text-sm text-gray-600">
+                        Banasree, Dhaka, Bangladesh.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Time Information */}
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                  Time
+                </h3>
+                <div className="space-y-2">
+                  <div className="flex items-center">
+                    <FiUsers className="text-gray-500 mr-2" size={16} />
+                    <span className="text-sm text-gray-600">
+                      Check In - 12 PM
+                    </span>
+                  </div>
+                  <div className="flex items-center">
+                    <FiLogIn className="text-gray-500 mr-2" size={16} />
+                    <span className="text-sm text-gray-600">
+                      Check Out - 12 PM
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <h1 className="text-2xl w-full max-w-7xl mb-8">List of all Products</h1>
         <div className="px-2 md:px-10 grid grid-cols-2 lg:grid-cols-4 gap-4 items-center justify-items-center max-w-7xl">
           {products.map((product, key) => (
