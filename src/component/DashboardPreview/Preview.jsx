@@ -20,7 +20,7 @@ export default function Preview() {
           Apps preview
         </h1>
       </div>
-      <div className="flex flex-col md:flex-row gap-8 justify-center items-center max-h-screen overflow-x-hidden py-6 h-[92%]">
+      <div className="flex flex-col md:flex-row gap-8 justify-between items-center max-h-screen overflow-x-hidden py-6 h-[92%]">
         {/* Mobile Preview */}
         <div className="lg:w-[350px] h-full border-2 border-gray-300 rounded-lg overflow-hidden shadow-md relative">
           <div className="flex items-center justify-between ps-2 pe-6 absolute top-0 z-10 w-full bg-[#ffffff81]">
@@ -37,7 +37,7 @@ export default function Preview() {
         </div>
 
         {/* Desktop Preview */}
-        <div className="lg:w-[1024px] h-full border-2 border-gray-300 rounded-lg overflow-hidden shadow-md">
+        <div className="lg:w-[1024px] xl:w-full h-full border-2 border-gray-300 rounded-lg overflow-hidden shadow-md">
           <PreviewIframe />
         </div>
       </div>

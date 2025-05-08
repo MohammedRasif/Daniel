@@ -162,7 +162,7 @@ const Home = () => {
           </div>
         </div>
         <h1 className="text-2xl w-full max-w-7xl mb-8">List of all Products</h1>
-        <div className="px-2 md:px-10 grid grid-cols-2 lg:grid-cols-4 gap-4 items-center justify-items-center max-w-7xl">
+        <div className="px-2 md:px-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-center justify-items-center max-w-7xl">
           {products.map((product, key) => (
             <ProductCard key={key} product={product} />
           ))}
