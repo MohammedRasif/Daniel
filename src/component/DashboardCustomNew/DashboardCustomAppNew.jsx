@@ -6,6 +6,7 @@ import { FaArrowLeft, FaArrowRight, FaPlus } from "react-icons/fa";
 import AddPriceList from "./pagesPart/AddPriceList";
 import SelectAppCategory from "./pagesPart/SelectAppCategory";
 import Modals from "./Helpers/Modals";
+import GeneralInfo from "./pagesPart/GeneralInfo";
 
 export default function DashboardCustomAppNew() {
   const [productList, setProductList] = useState([]);
@@ -51,6 +52,7 @@ export default function DashboardCustomAppNew() {
         </button>
       </div>
       <SelectAppCategory productList={productList} />
+      {/* list _ top */}
     </div>,
     // Add more steps here as needed
   ];
@@ -114,32 +116,36 @@ export default function DashboardCustomAppNew() {
         </TitleSection>
         <div className="w-full">
           {/* Render the current step component */}
-          {steps[currentStep]}
+          {selected == "option1" && steps[currentStep]}
+          {selected == "option2" && <GeneralInfo />}
+          {selected == "option3" && <h1>option3</h1>}
         </div>
 
-        <div className="flex items-center justify-center w-full">
-          <div className="flex gap-4">
-            {/* Previous Button */}
-            <button
-              onClick={handlePreviousStep}
-              className="flex items-center justify-center gap-2 border-[#637186] border px-3 py-2 rounded-xl hover:cursor-pointer"
-              disabled={currentStep === 0} // Disable if on the first step
-            >
-              <FaArrowLeft />
-              <span>Previous</span>
-            </button>
+        {selected == "option1" && (
+          <div className="flex items-center justify-center w-full">
+            <div className="flex gap-4">
+              {/* Previous Button */}
+              <button
+                onClick={handlePreviousStep}
+                className="flex items-center justify-center gap-2 border-[#637186] border px-3 py-2 rounded-xl hover:cursor-pointer"
+                disabled={currentStep === 0} // Disable if on the first step
+              >
+                <FaArrowLeft />
+                <span>Previous</span>
+              </button>
 
-            {/* Next Button */}
-            <button
-              onClick={handleNextStep}
-              className="flex items-center justify-center gap-2 border-[#637186] border px-3 py-2 rounded-xl hover:cursor-pointer"
-              disabled={currentStep === steps.length - 1} // Disable if on the last step
-            >
-              <span>Next</span>
-              <FaArrowRight />
-            </button>
+              {/* Next Button */}
+              <button
+                onClick={handleNextStep}
+                className="flex items-center justify-center gap-2 border-[#637186] border px-3 py-2 rounded-xl hover:cursor-pointer"
+                disabled={currentStep === steps.length - 1} // Disable if on the last step
+              >
+                <span>Next</span>
+                <FaArrowRight />
+              </button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Modal for Adding Product */}
