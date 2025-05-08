@@ -96,12 +96,12 @@ const Home = () => {
       /> */}
       <HeroSection />
       <div className="flex justify-center flex-col items-center py-8 px-4 md:px-16">
-        <div>
+        <div className=" w-full">
           <div>
             <h1 className="text-2xl text-[#444863] mb-4">{app?.name}</h1>
             <p className="text-[#828396]">{app?.description}</p>
           </div>
-          <div className="bg-white rounded-lg shadow-md p-4 w-full max-w-4xl mx-auto mb-6 md:10">
+          <div className="bg-white rounded-lg shadow-md p-4 w-full mx-auto mb-6 md:10">
             <div className="flex flex-col sm:flex-row">
               {/* Contact Details */}
               <div className="mb-4 sm:mb-0 flex-1/2">
@@ -162,7 +162,7 @@ const Home = () => {
           </div>
         </div>
         <h1 className="text-2xl w-full max-w-7xl mb-8">List of all Products</h1>
-        <div className="px-2 md:px-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-center justify-items-center max-w-7xl">
+        <div className="md:px-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-center justify-items-center w-full">
           {products.map((product, key) => (
             <ProductCard key={key} product={product} />
           ))}
