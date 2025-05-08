@@ -14,11 +14,9 @@ import CoustomApp from './component/DashboardPages/CoustomApp.jsx';
 import Marketing from './component/DashboardPages/Marketing.jsx';
 import Membership from './component/DashboardPages/Membership.jsx';
 import BrandSetUp from './component/DashboardPages/BrandSetUp.jsx';
-<<<<<<< HEAD
-import Chatbot from './component/DashboardPages/Chatbot.jsx';
-=======
 import DashboardCustomAppNew from './component/DashboardCustomNew/DashboardCustomAppNew.jsx';
->>>>>>> 5dfadf9d4192b696ab80dcd87bb464ef157c18ab
+import Chatbot from './component/DashboardPages/Chatbot.jsx';
+import Login from './component/Pages/login.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +29,10 @@ const router = createBrowserRouter([
         element:<Home/> ,
       },
     ],
+  },
+  {
+    path:"/login",
+    element:<Login/>
   },
 
   {
@@ -56,18 +58,15 @@ const router = createBrowserRouter([
       {
         path:"/dashboard/brandSetUp",
         element:<BrandSetUp/>
-<<<<<<< HEAD
       },
       {
         path:"/dashboard/chatbot",
         element:<Chatbot/>
       },
-=======
-      },{
+      {
         path:"/dashboard/custom_app/new",
         element:<DashboardCustomAppNew/>
       }
->>>>>>> 5dfadf9d4192b696ab80dcd87bb464ef157c18ab
     ]
   }
 ]);
