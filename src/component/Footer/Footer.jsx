@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="bg-white border-t border-gray-200 py-4 drop-shadow-2xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between">
+      <div className="max-w-7xl mx-auto  flex flex-col sm:flex-row items-center justify-between">
         {/* Logo Placeholder - Replace with your logo */}
         <div className="mb-2 sm:mb-0">
           <img src="/logo.png" alt="WePro" className="w-[100px]" />

@@ -196,9 +196,8 @@ const CustomApp = () => {
         >
           <div
             ref={popupRef}
-            className={`relative border border-gray-300 rounded-[10px] bg-white p-6 w-full ${
-              popup.type === "poster" ? "max-w-5xl" : "max-w-xl"
-            }`}
+            className={`relative border border-gray-300 rounded-[10px] bg-white p-6 w-full ${popup.type === "poster" ? "max-w-5xl" : "max-w-xl"
+              }`}
             onClick={(e) => e.stopPropagation()}
           >
             {(() => {
@@ -220,12 +219,24 @@ const CustomApp = () => {
                         Back
                       </button>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-700 mb-4">
-                      Share: {card.title}
+                    <h3 className="text-2xl font-semibold text-gray-700 mb-4 text-center">
+                      What do you want to Share now?
                     </h3>
-                    <p className="text-gray-500 mb-6">
-                      Share this app via link or social media.
-                    </p>
+                   
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-700">1. Link of the Custom Apps</span>
+                        <button className="px-3 py-1  text-gray-500 ">
+                          Copy
+                        </button>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-700">2. Download poster</span>
+                        <button className="px-3 py-1 underline ">
+                          Click here
+                        </button>
+                      </div>
+                    </div>
                   </>
                 );
               }

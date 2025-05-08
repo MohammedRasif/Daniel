@@ -6,10 +6,9 @@ import logo from "/logo.png";
 const Header = ({ bg, title }) => {
   return (
     <div
-      className={`${
-        bg &&
+      className={`${bg &&
         "bg-[url(https://i.ibb.co.com/3YyNxcSV/beautiful-shot-waterfall-coming-down-from-mountains.jpg)] bg-no-repeat bg-cover bg-center"
-      } bg-[#f0f0f0] bg-opacity-75 p-6 flex flex-col items-center text-center relative h-[500px] rounded-b-3xl`}
+        } bg-[#f0f0f0] bg-opacity-75 p-6 flex flex-col items-center text-center relative h-[500px] rounded-b-3xl`}
     >
       <div className="absolute top-4 left-4 bg-white px-3 py-2 rounded-full">
         <img src="/icon.png" alt="" />
@@ -27,9 +26,8 @@ const Header = ({ bg, title }) => {
       )}
       {/* Logo Placeholder - Replace with your logo */}
       <div
-        className={`flex flex-col h-full  ${
-          title ? "justify-end w-full" : "items-center justify-center"
-        }`}
+        className={`flex flex-col h-full  ${title ? "justify-end w-full" : "items-center justify-center"
+          }`}
       >
         {/* Tagline */}
         {!title && (

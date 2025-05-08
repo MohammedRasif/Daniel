@@ -19,6 +19,7 @@ import ForgetPassword from "./component/Pages/ForgetPassword.jsx";
 import VerificationForget from "./component/Pages/VerificationForget.jsx";
 import SetNewPassword from "./component/Pages/SetNewPassword.jsx";
 import VerificationRegister from "./component/Pages/VerificationRegister.jsx";
+import Chatbot from "./component/DashboardPages/Chatbot.jsx";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/custom_app",
         element: <CoustomApp />,
+      },
+      {
+        path: "/dashboard/chatbot",
+        element: <Chatbot />,
       },
       {
         path: "/dashboard/markeding",
