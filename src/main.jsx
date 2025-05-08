@@ -16,6 +16,7 @@ import Preview from "./component/DashboardPreview/Preview.jsx";
 import Login from "./component/Pages/login.jsx";
 import Register from "./component/Pages/Register.jsx";
 import ForgetPassword from "./component/Pages/ForgetPassword.jsx";
+import VerificationForget from "./component/Pages/VerificationForget.jsx";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path:"/forget_password",
     element:<ForgetPassword/>
+  },
+  {
+    path:"/forget_password_verification",
+    element:<VerificationForget/>
   },
 
   {

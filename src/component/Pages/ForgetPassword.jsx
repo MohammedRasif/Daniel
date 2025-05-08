@@ -1,9 +1,8 @@
 
 import { Link } from "react-router-dom";
-import img from "../../image/image.png";
+import img from "../../image/umbrella-pool-chair.png";
 import img1 from "../../image/logo.png";
 import { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
 
 export default function ForgetPassword() {
     const [showPassword, setShowPassword] = useState(false);
