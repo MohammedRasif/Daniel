@@ -1,23 +1,19 @@
 import React, { useState } from "react";
-import Input from "../Helpers/Input";
 import { FaPlus } from "react-icons/fa";
 import ImageInputGroup from "../Helpers/ImageInputGroup";
+import Input from "../Helpers/Input";
 
-export default function GeneralInfo() {
+export default function TripsAdventure() {
   const [title, setTitle] = useState("");
-  const [contactNumber, setContactNumber] = useState("");
+  const [number, setNumber] = useState("");
   const [description, setDescription] = useState("");
   const [email, setEmail] = useState("");
   const [banner, setBanner] = useState(null);
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
-  // handle dinamic inputs
+  const [category, setCategory] = useState("");
   const [imageInputs, setImageInputs] = useState([]);
-  // handle on change of new creted inputes
   const addImageInput = () => {
     setImageInputs([...imageInputs, { title: "", file: null }]);
   };
-
   const handleImageInputChange = (index, field, value) => {
     const updated = [...imageInputs];
     updated[index][field] = value;
@@ -29,25 +25,23 @@ export default function GeneralInfo() {
 
     const formData = {
       title,
-      contactNumber,
+      number,
       description,
       email,
       banner,
-      startTime,
-      endTime,
-      imageInputs, // This is the dynamic list
+      category,
+      imageInputs,
     };
 
-    console.log("Final Form Data:", formData);
+    console.log("Submitted Data:", formData);
 
-    // Reset the form
+    // Reset all fields
     setTitle("");
-    setContactNumber("");
+    setNumber("");
     setDescription("");
     setEmail("");
     setBanner(null);
-    setStartTime("");
-    setEndTime("");
+    setCategory("");
     setImageInputs([]);
   };
 
@@ -55,7 +49,7 @@ export default function GeneralInfo() {
     <div className="text-[#374055] mt-4 ">
       <div className="flex justify-between border-b border-[#9c9c9c] pb-2">
         <div>
-          <h1 className="text-lg">General information's</h1>
+          <h1 className="text-lg">Tip's and Adventure</h1>
         </div>
         <div
           onClick={addImageInput}
@@ -66,8 +60,7 @@ export default function GeneralInfo() {
         </div>
       </div>
       <div>
-        <form className="space-y-6" onSubmit={(e) => handleSubmit(e)}>
-          {/* Title & Contact Number */}
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input
               id="appTitle"
@@ -81,8 +74,8 @@ export default function GeneralInfo() {
               id="ContactNumber"
               labelText="Contact Number"
               type="number"
-              value={contactNumber}
-              onChange={(e) => setContactNumber(e.target.value)}
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
               placeholder="Enter here"
             />
           </div>
@@ -118,28 +111,15 @@ export default function GeneralInfo() {
               placeholder="banner"
               accept="image/*"
             />
-
-            {/* Second column */}
-            <div className="flex gap-2 h-full flex-col md:flex-row">
-              <Input
-                id="startTime"
-                labelText="Check in Time"
-                type="time"
-                value={startTime}
-                onChange={(e) => setStartTime(e.target.value)}
-                placeholder="10:00 AM"
-                className="w-full p-[14px]"
-              />
-              <Input
-                id="endTime"
-                labelText="Check out"
-                type="time"
-                value={endTime}
-                onChange={(e) => setEndTime(e.target.value)}
-                placeholder="10:00 PM"
-                className="w-full p-[14px]"
-              />
-            </div>
+            <Input
+              id="category"
+              labelText="Category (Max 12 words)"
+              type="text"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              placeholder="Enter here"
+              className="p-[14px]"
+            />
           </div>
           {imageInputs.map((input, index) => (
             <ImageInputGroup
@@ -149,7 +129,7 @@ export default function GeneralInfo() {
               handleChange={handleImageInputChange}
             />
           ))}
-          <div className="w-full flex items-center justify-center">
+          <div className="w-full flex items-center justify-center mt-8">
             <button
               className="border px-12 font-bold py-2 rounded-xl bg-[#eb5a8e] text-white hover:cursor-pointer "
               type="submit"

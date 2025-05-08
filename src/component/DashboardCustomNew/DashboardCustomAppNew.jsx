@@ -7,6 +7,7 @@ import AddPriceList from "./pagesPart/AddPriceList";
 import SelectAppCategory from "./pagesPart/SelectAppCategory";
 import Modals from "./Helpers/Modals";
 import GeneralInfo from "./pagesPart/GeneralInfo";
+import TripsAdventure from "./pagesPart/TripsAdventure";
 
 export default function DashboardCustomAppNew() {
   const [productList, setProductList] = useState([]);
@@ -118,7 +119,7 @@ export default function DashboardCustomAppNew() {
           {/* Render the current step component */}
           {selected == "option1" && steps[currentStep]}
           {selected == "option2" && <GeneralInfo />}
-          {selected == "option3" && <h1>option3</h1>}
+          {selected == "option3" && <TripsAdventure />}
         </div>
 
         {selected == "option1" && (
