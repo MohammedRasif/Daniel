@@ -1,4 +1,3 @@
-
 import { useRef, useState } from "react";
 import { GoArrowLeft } from "react-icons/go";
 import { FaCloudDownloadAlt, FaEdit } from "react-icons/fa";
@@ -15,31 +14,36 @@ const CustomApp = () => {
       id: 1,
       title: "Drink and Food Menu",
       count: 250,
-      image: "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg",
+      image:
+        "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg",
     },
     {
       id: 2,
       title: "Drink and Food Menu",
       count: 250,
-      image: "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg",
+      image:
+        "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg",
     },
     {
       id: 3,
       title: "Drink and Food Menu",
       count: 250,
-      image: "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg",
+      image:
+        "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg",
     },
     {
       id: 4,
       title: "Drink and Food Menu",
       count: 250,
-      image: "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg",
+      image:
+        "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg",
     },
     {
       id: 5,
       title: "Drink and Food Menu",
       count: 250,
-      image: "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg",
+      image:
+        "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg",
     },
   ];
 
@@ -102,7 +106,9 @@ const CustomApp = () => {
         {appCards.map((card) => (
           <div key={card.id} className="bg-white p-5 rounded-lg shadow-sm">
             <div className="flex justify-between items-start mb-4">
-              <h3 className="text-gray-700 text-[18px] font-medium">{card.title}</h3>
+              <h3 className="text-gray-700 text-[18px] font-medium">
+                {card.title}
+              </h3>
               <button className="text-gray-400 cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +129,9 @@ const CustomApp = () => {
 
             <div className="flex justify-between items-center mb-4">
               <div>
-                <div className="text-5xl font-semibold text-gray-400">{card.count}</div>
+                <div className="text-5xl font-semibold text-gray-400">
+                  {card.count}
+                </div>
                 <div className="text-gray-500 text-md">Times open</div>
               </div>
               <div>
@@ -154,7 +162,10 @@ const CustomApp = () => {
         ))}
 
         {/* Create New App Card */}
-        <Link to="/dashboard/custom_app/new" className="bg-white p-5 rounded-lg shadow-sm flex flex-col items-center justify-center min-h-[220px]">
+        <Link
+          to="/dashboard/custom_app/new"
+          className="bg-white p-5 rounded-lg shadow-sm flex flex-col items-center justify-center min-h-[220px]"
+        >
           <div className="bg-gray-100 rounded-full p-4 mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -204,14 +215,16 @@ const CustomApp = () => {
                       className="flex items-center justify-start -mt-5 cursor-pointer"
                     >
                       <GoArrowLeft className="text-gray-700" />
-                      <button
-                        className="py-2 px-1 text-gray-700 rounded-md font-medium transition-colors cursor-pointer"
-                      >
+                      <button className="py-2 px-1 text-gray-700 rounded-md font-medium transition-colors cursor-pointer">
                         Back
                       </button>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-700 mb-4">Share: {card.title}</h3>
-                    <p className="text-gray-500 mb-6">Share this app via link or social media.</p>
+                    <h3 className="text-xl font-semibold text-gray-700 mb-4">
+                      Share: {card.title}
+                    </h3>
+                    <p className="text-gray-500 mb-6">
+                      Share this app via link or social media.
+                    </p>
                   </>
                 );
               }
@@ -224,20 +237,23 @@ const CustomApp = () => {
                       className="flex items-center justify-start -mt-5 cursor-pointer"
                     >
                       <GoArrowLeft className="text-gray-700" />
-                      <button
-                        className="py-2 px-1 text-gray-700 rounded-md font-medium transition-colors cursor-pointer"
-                      >
+                      <button className="py-2 px-1 text-gray-700 rounded-md font-medium transition-colors cursor-pointer">
                         Back
                       </button>
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-700 mb-4">Preview: {card.title}</h3>
-                    <p className="text-gray-500 mb-6">Preview the app content.</p>
+                    <h3 className="text-xl font-semibold text-gray-700 mb-4">
+                      Preview: {card.title}
+                    </h3>
+                    <p className="text-gray-500 mb-6">
+                      Preview the app content.
+                    </p>
                     <div className="flex gap-3 mb-4">
-                      <button
-                        className="flex-1 py-2 bg-[#20325A] text-white rounded-md font-medium hover:bg-[#1b2a49] transition-colors cursor-pointer"
+                      <Link
+                        to="/dashboard/preview"
+                        className="text-center flex-1 py-2 bg-[#20325A] text-white rounded-md font-medium hover:bg-[#1b2a49] transition-colors cursor-pointer"
                       >
                         Link
-                      </button>
+                      </Link>
                       <button
                         onClick={() => handlePosterClick(popup.cardId)}
                         className="flex-1 py-2 bg-[#20325A] text-white rounded-md font-medium hover:bg-[#1b2a49] transition-colors cursor-pointer"
@@ -252,9 +268,7 @@ const CustomApp = () => {
               if (popup.type === "poster") {
                 return (
                   <>
-                    <div
-                      className="flex items-center justify-between -mt-4 my-2"
-                    >
+                    <div className="flex items-center justify-between -mt-4 my-2">
                       <div className="flex items-center px-2 -py-[4px] bg-gray-200 rounded-sm">
                         <GoArrowLeft className="text-gray-700" />
                         <button
@@ -279,9 +293,7 @@ const CustomApp = () => {
                         </div>
                         <div className="flex items-center px-2 -py-[4px] bg-gray-200 rounded-sm">
                           <FaEdit className="text-gray-700" />
-                          <button
-                            className="py-2 px-1 text-gray-700 rounded-md font-medium transition-colors cursor-pointer"
-                          >
+                          <button className="py-2 px-1 text-gray-700 rounded-md font-medium transition-colors cursor-pointer">
                             Edit
                           </button>
                         </div>
@@ -301,48 +313,72 @@ const CustomApp = () => {
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
                               >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                                />
                               </svg>
                             </div>
-                            <span className="text-2xl font-bold text-navy-800">WePro</span>
+                            <span className="text-2xl font-bold text-navy-800">
+                              WePro
+                            </span>
                           </div>
 
                           {/* Main title */}
-                          <h1 className="text-4xl font-bold text-navy-800 mb-6">{card.title}</h1>
+                          <h1 className="text-4xl font-bold text-navy-800 mb-6">
+                            {card.title}
+                          </h1>
 
                           {/* Description text */}
                           <p className="text-gray-500 mb-12">
-                            Lorem ipsum dolor sit amet consectetur. Facilisi suspendisse elit vitae quis sed pulvinar facilisi ipsum
-                            viverra. Id vestibulum quisque in neque. Scelerisque ornare erat urna massa. Phasellus arcu condimentum
-                            pellentesque nibh senectus vulputate malesuada dictumst felis.
+                            Lorem ipsum dolor sit amet consectetur. Facilisi
+                            suspendisse elit vitae quis sed pulvinar facilisi
+                            ipsum viverra. Id vestibulum quisque in neque.
+                            Scelerisque ornare erat urna massa. Phasellus arcu
+                            condimentum pellentesque nibh senectus vulputate
+                            malesuada dictumst felis.
                           </p>
 
                           {/* Contact section */}
                           <div className="mb-8">
-                            <h2 className="text-xl font-semibold text-pink-500 mb-4">Contact Us</h2>
+                            <h2 className="text-xl font-semibold text-pink-500 mb-4">
+                              Contact Us
+                            </h2>
                             <div className="space-y-2">
                               <div className="flex items-center">
                                 <Phone className="h-4 w-4 text-gray-500 mr-2" />
-                                <span className="text-gray-500">0123456789</span>
+                                <span className="text-gray-500">
+                                  0123456789
+                                </span>
                               </div>
                               <div className="flex items-center">
                                 <Mail className="h-4 w-4 text-gray-500 mr-2" />
-                                <span className="text-gray-500">youremail@yahoo.com</span>
+                                <span className="text-gray-500">
+                                  youremail@yahoo.com
+                                </span>
                               </div>
                               <div className="flex items-center">
                                 <Globe className="h-4 w-4 text-gray-500 mr-2" />
-                                <span className="text-gray-500">www.yourweb.com</span>
+                                <span className="text-gray-500">
+                                  www.yourweb.com
+                                </span>
                               </div>
                               <div className="flex items-center">
                                 <MapPin className="h-4 w-4 text-gray-500 mr-2" />
-                                <span className="text-gray-500">Banasree, Dhaka, Bangladesh.</span>
+                                <span className="text-gray-500">
+                                  Banasree, Dhaka, Bangladesh.
+                                </span>
                               </div>
                             </div>
                           </div>
 
                           {/* QR code and App link */}
                           <div>
-                            <h2 className="text-xl font-semibold text-pink-500 mb-4">App link</h2>
+                            <h2 className="text-xl font-semibold text-pink-500 mb-4">
+                              App link
+                            </h2>
                             <div className="flex items-center">
                               <div className="mr-4">
                                 <img
@@ -353,7 +389,9 @@ const CustomApp = () => {
                                   className="border border-gray-300"
                                 />
                               </div>
-                              <div className="text-gray-500 text-sm">https://www.google.com/search?q=qr+code+png&...</div>
+                              <div className="text-gray-500 text-sm">
+                                https://www.google.com/search?q=qr+code+png&...
+                              </div>
                             </div>
                           </div>
                         </div>
