@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
+
+@theme {
+  --color-navy-800: #1C2526;
+  --color-pink-500: #EC4899;
+}
+
 .noto {
   font-family: "Noto Sans", sans-serif;
 }

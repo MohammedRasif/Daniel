@@ -4,10 +4,10 @@ import { FaCloudDownloadAlt, FaEdit } from "react-icons/fa";
 import { Phone, Mail, Globe, MapPin } from "lucide-react";
 import html2canvas from "html2canvas";
 import { Link } from "react-router-dom";
-import Poster from "./Poster";
 
 const CustomApp = () => {
   const popupRef = useRef(null); // Reference to the entire popup content
+  const posterRef = useRef(null); // Reference to the poster content
 
   // Sample data for the app cards
   const appCards = [
@@ -72,14 +72,16 @@ const CustomApp = () => {
   // Function to handle download
   const handleDownload = async (e) => {
     e.stopPropagation(); // Prevent popup from closing
-    if (popupRef.current) {
+    const targetRef = popup.type === "poster" ? posterRef : popupRef;
+    if (targetRef.current) {
       try {
-        // Capture the entire popup content as a canvas
-        const canvas = await html2canvas(popupRef.current, {
+        // Capture the content as a canvas
+        const canvas = await html2canvas(targetRef.current, {
           scale: 2, // Higher resolution
           useCORS: true, // Handle cross-origin images
           backgroundColor: "#ffffff", // White background
           logging: true, // Debug logs
+          allowTaint: false, // Prevent tainted canvas
         });
 
         // Convert canvas to PNG image
@@ -141,6 +143,7 @@ const CustomApp = () => {
                   alt={card.title}
                   className="w-36 h-28 object-cover rounded-md"
                   onError={(e) => (e.target.src = "/placeholder.svg")}
+                  crossOrigin="anonymous" // Added for CORS
                 />
               </div>
             </div>
@@ -196,8 +199,9 @@ const CustomApp = () => {
         >
           <div
             ref={popupRef}
-            className={`relative border border-gray-300 rounded-[10px] bg-white p-6 w-full ${popup.type === "poster" ? "max-w-5xl" : "max-w-xl"
-              }`}
+            className={`relative border border-gray-300 rounded-[10px] bg-white p-6 w-full ${
+              popup.type === "poster" ? "max-w-5xl" : "max-w-xl"
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
             {(() => {
@@ -222,17 +226,18 @@ const CustomApp = () => {
                     <h3 className="text-2xl font-semibold text-gray-700 mb-4 text-center">
                       What do you want to Share now?
                     </h3>
-                   
+
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
                         <span className="text-gray-700">1. Link of the Custom Apps</span>
-                        <button className="px-3 py-1  text-gray-500 ">
-                          Copy
-                        </button>
+                        <button className="px-3 py-1 text-gray-500">Copy</button>
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-gray-700">2. Download poster</span>
-                        <button className="px-3 py-1 underline ">
+                        <button
+                          onClick={() => handlePosterClick(popup.cardId)}
+                          className="px-3 py-1 underline"
+                        >
                           Click here
                         </button>
                       </div>
@@ -256,9 +261,7 @@ const CustomApp = () => {
                     <h3 className="text-xl font-semibold text-gray-700 mb-4">
                       Preview: {card.title}
                     </h3>
-                    <p className="text-gray-500 mb-6">
-                      Preview the app content.
-                    </p>
+                    <p className="text-gray-500 mb-6">Preview the app content.</p>
                     <div className="flex gap-3 mb-4">
                       <Link
                         to="/dashboard/preview"
@@ -280,7 +283,134 @@ const CustomApp = () => {
               if (popup.type === "poster") {
                 return (
                   <>
-                    <Poster />
+                    <div className="relative w-full overflow-hidden">
+                      {/* Button Section */}
+                      <div className="flex justify-between items-center mb-6 px-8">
+                        <div
+                          onClick={closePopup} // Changed to close popup
+                          className="flex items-center justify-start gap-2 text-gray-500 border border-gray-400 w-fit px-2 py-1 rounded hover:bg-gray-200 cursor-pointer"
+                        >
+                          <GoArrowLeft />
+                          <p>Back</p>
+                        </div>
+                        <div className="flex gap-2">
+                          <button
+                            className="flex items-center justify-center gap-2 text-gray-500 border border-gray-400 w-fit px-2 py-1 rounded hover:bg-gray-200"
+                            onClick={handleDownload}
+                          >
+                            <FaCloudDownloadAlt />
+                            <p>Download</p>
+                          </button>
+                          <button className="flex items-center justify-center gap-2 text-gray-500 border border-gray-400 w-fit px-2 py-1 rounded hover:bg-gray-200">
+                            <FaEdit />
+                            <p>Edit</p>
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Main Poster Content */}
+                      <div className="flex flex-col md:flex-row" ref={posterRef}>
+                        {/* Left content section */}
+                        <div className="w-full md:w-1/2 p-8 z-10">
+                          {/* Logo */}
+                          <div className="flex items-center mb-16">
+                            <div className="bg-[#EC4899] text-white p-2 rounded-lg mr-2">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                                />
+                              </svg>
+                            </div>
+                            <span className="text-2xl font-bold text-[#1C2526]">WePro</span>
+                          </div>
+
+                          {/* Main title */}
+                          <h1 className="text-4xl font-bold text-[#1C2526] mb-6">
+                            Title will be displayed here
+                          </h1>
+
+                          {/* Description text */}
+                          <p className="text-gray-500 mb-12">
+                            Lorem ipsum dolor sit amet consectetur. Facilisi suspendisse elit vitae
+                            quis sed pulvinar facilisi ipsum viverra. Id vestibulum quisque in neque.
+                            Scelerisque ornare erat urna massa. Phasellus arcu condimentum
+                            pellentesque nibh senectus vulputate malesuada dictumst felis. nibh
+                            senectus vulputate malesuada dictumst felis. nibh senectus vulputate
+                            malesuada dictumst felis.
+                          </p>
+
+                          {/* Contact section */}
+                          <div className="mb-8">
+                            <h2 className="text-xl font-semibold text-[#EC4899] mb-4">
+                              Contact Us
+                            </h2>
+                            <div className="space-y-2">
+                              <div className="flex items-center">
+                                <Phone className="h-4 w-4 text-gray-500 mr-2" />
+                                <span className="text-gray-500">0123456789</span>
+                              </div>
+                              <div className="flex items-center">
+                                <Mail className="h-4 w-4 text-gray-500 mr-2" />
+                                <span className="text-gray-500">youremail@yahoo.com</span>
+                              </div>
+                              <div className="flex items-center">
+                                <Globe className="h-4 w-4 text-gray-500 mr-2" />
+                                <span className="text-gray-500">www.yourweb.com</span>
+                              </div>
+                              <div className="flex items-center">
+                                <MapPin className="h-4 w-4 text-gray-500 mr-2" />
+                                <span className="text-gray-500">Banasree, Dhaka, Bangladesh.</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* QR code and App link */}
+                          <div>
+                            <h2 className="text-xl font-semibold text-[#EC4899] mb-4">App link</h2>
+                            <div className="flex items-center">
+                              <div className="mr-4">
+                                <img
+                                  src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://example.com"
+                                  alt="QR Code"
+                                  width={100}
+                                  height={100}
+                                  className="border border-gray-300"
+                                  crossOrigin="anonymous"
+                                />
+                              </div>
+                              <div className="text-gray-500 text-sm">
+                                https://www.google.com/search?q=qr+code+png&...
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Right image section with curved border */}
+                        <div className="w-full md:w-1/2 relative">
+                          <div className="w-full h-full bg-[#EB5A8E] rounded-l-[30vh] relative overflow-hidden">
+                            {/* Image */}
+                            <img
+                              src="https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg"
+                              alt="Poster background"
+                              className="w-[49vh] h-full object-cover absolute right-0 top-0 z-0 rounded-l-[30vh]"
+                              crossOrigin="anonymous"
+                            />
+
+                            {/* Opacity overlay (semi-transparent to show image) */}
+                            <div className="bg-[#EB5A8E]/60 h-96 w-8 absolute top-52 right-0 z-10 rounded-l-full"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </>
                 );
               }

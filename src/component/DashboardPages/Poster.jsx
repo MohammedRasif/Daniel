@@ -1,14 +1,69 @@
 import { Phone, Mail, Globe, MapPin } from "lucide-react";
+import { FaArrowLeft, FaDownload, FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useRef } from "react";
+import html2canvas from "html2canvas";
 
 const Poster = () => {
+  // Ref to capture the poster content
+  const posterRef = useRef(null);
+
+  // Handle download as image
+  const handleDownload = async () => {
+    if (posterRef.current) {
+      try {
+        const canvas = await html2canvas(posterRef.current, {
+          useCORS: true, // Handle cross-origin images
+          scale: 2, // Increase resolution
+          logging: true, // Enable logging for debugging
+          backgroundColor: "#ffffff", // Set white background to avoid transparency issues
+        });
+        const link = document.createElement("a");
+        link.href = canvas.toDataURL("image/png");
+        link.download = "poster.png";
+        link.click();
+      } catch (error) {
+        console.error("Error generating image:", error);
+        alert("Failed to download poster. Check console for details.");
+      }
+    }
+  };
+
   return (
-    <div className="relative w-full   overflow-hidden">
-      <div className="flex flex-col md:flex-row">
+    <div className="relative w-full overflow-hidden">
+      {/* Button Section */}
+      <div className="flex justify-between items-center mb-6 px-8">
+        <Link
+          to="/dashboard/custom_app"
+          className="flex items-center justify-start gap-2 text-gray-500 border border-gray-400 w-fit px-2 py-1 rounded hover:bg-gray-200"
+        >
+          <FaArrowLeft />
+          <p>Back</p>
+        </Link>
+        <div className="flex gap-2">
+          <button
+            className="flex items-center justify-center gap-2 text-gray-500 border border-gray-400 w-fit px-2 py-1 rounded hover:bg-gray-200"
+            onClick={handleDownload}
+          >
+            <FaDownload />
+            <p>Download</p>
+          </button>
+          <button
+            className="flex items-center justify-center gap-2 text-gray-500 border border-gray-400 w-fit px-2 py-1 rounded hover:bg-gray-200"
+          >
+            <FaEdit />
+            <p>Edit</p>
+          </button>
+        </div>
+      </div>
+
+      {/* Main Poster Content */}
+      <div className="flex flex-col md:flex-row" ref={posterRef}>
         {/* Left content section */}
         <div className="w-full md:w-1/2 p-8 z-10">
           {/* Logo */}
           <div className="flex items-center mb-16">
-            <div className="bg-pink-500 text-white p-2 rounded-lg mr-2">
+            <div className="bg-[#EC4899] text-white p-2 rounded-lg mr-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -24,11 +79,11 @@ const Poster = () => {
                 />
               </svg>
             </div>
-            <span className="text-2xl font-bold text-navy-800">WePro</span>
+            <span className="text-2xl font-bold text-[#1C2526]">WePro</span>
           </div>
 
           {/* Main title */}
-          <h1 className="text-4xl font-bold text-navy-800 mb-6">
+          <h1 className="text-4xl font-bold text-[#1C2526] mb-6">
             Title will be displayed here
           </h1>
 
@@ -44,7 +99,7 @@ const Poster = () => {
 
           {/* Contact section */}
           <div className="mb-8">
-            <h2 className="text-xl font-semibold text-pink-500 mb-4">
+            <h2 className="text-xl font-semibold text-[#EC4899] mb-4">
               Contact Us
             </h2>
             <div className="space-y-2">
@@ -71,13 +126,13 @@ const Poster = () => {
 
           {/* QR code and App link */}
           <div>
-            <h2 className="text-xl font-semibold text-pink-500 mb-4">
+            <h2 className="text-xl font-semibold text-[#EC4899] mb-4">
               App link
             </h2>
             <div className="flex items-center">
               <div className="mr-4">
                 <img
-                  src="/placeholder.svg?height=100&width=100"
+                  src="https://via.placeholder.com/100" // Replaced with CORS-compliant image
                   alt="QR Code"
                   width={100}
                   height={100}
@@ -93,22 +148,16 @@ const Poster = () => {
 
         {/* Right image section with curved border */}
         <div className="w-full md:w-1/2 relative">
-          {/* This is the pink curved border container */}
-          {/* <div className="absolute top-0 right-0 bottom-0 left-0 bg-pink-500 rounded-l-[200px]"></div> */}
-
-          {/* This is the image container that respects the curved border */}
-
-          <div className="w-full h-full">
+          <div className="w-full h-full bg-[#EB5A8E] rounded-l-[30vh] relative overflow-hidden">
+            {/* Image */}
             <img
-              src="/shape.png"
-              alt=""
-              className="h-full w-full absolute top-0 right-0 z-10"
-            />
-            <img
-              className="h-full w-full absolute top-0 right-0"
               src="https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg"
-              alt=""
+              alt="Poster background"
+              className="w-[49vh] h-full object-cover absolute right-0 top-0 z-0 rounded-l-[30vh]"
             />
+
+            {/* Opacity overlay (semi-transparent to show image) */}
+            <div className="bg-[#EB5A8E]/60 h-96 w-8 absolute top-52 right-0 z-10 rounded-l-full"></div>
           </div>
         </div>
       </div>
@@ -117,10 +166,3 @@ const Poster = () => {
 };
 
 export default Poster;
-{
-  /* <img
-                src="https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529180/cld-sample-4.jpg"
-                alt="Food image"
-                className=""
-              /> */
-}
