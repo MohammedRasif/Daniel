@@ -1,10 +1,9 @@
-
 import { NavLink, useLocation } from "react-router-dom";
 import img from "../Navbar/image 3.png";
-import { Briefcase,  } from "lucide-react";
+import { Briefcase } from "lucide-react";
 import { BiSolidDashboard } from "react-icons/bi";
 import { MdCompost } from "react-icons/md";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { TbDeviceMobileCog } from "react-icons/tb";
 import { CiMemoPad } from "react-icons/ci";
 import { GoChevronRight } from "react-icons/go";
@@ -17,16 +16,20 @@ const DashboardSidebar = () => {
     setIsBusinessOpen(!isBusinessOpen);
   };
 
-  const navLinkStyle = (isActive, isParent = false) => {
+  const navLinkStyle = (isActive, isParent = false, isCustomApps = false) => {
     // For "My Business" parent link, check if sub-links are active
     const isBusinessActive =
       isParent &&
-      (location.pathname.includes("/dashboard/post_project/brand_setup") ||
-        location.pathname.includes("/dashboard/post_project/ai_chatbot_setup"));
+      (location.pathname.includes("/dashboard/brandSetUp") ||
+        location.pathname.includes("/dashboard/chatbot"));
+
+    // For "My Custom Apps", check if preview route is active
+    const isCustomAppsActive =
+      isCustomApps && location.pathname.includes("/dashboard/preview");
 
     return `
       flex items-center gap-3 px-4 py-3 relative mx-5 my-1 rounded-md
-      ${(isActive || isBusinessActive)
+      ${(isActive || isBusinessActive || isCustomAppsActive)
         ? "bg-[#EB5A8E] dark:bg-gray-800 shadow-sm text-white"
         : "hover:bg-[#EB5A8E] dark:hover:bg-gray-700 hover:text-white dark:hover:text-white"
       }
@@ -60,7 +63,7 @@ const DashboardSidebar = () => {
         </NavLink>
         <NavLink
           to="/dashboard/custom_app"
-          className={({ isActive }) => navLinkStyle(isActive)}
+          className={({ isActive }) => navLinkStyle(isActive, false, true)}
         >
           <TbDeviceMobileCog className="h-6 w-6 transition-transform duration-200 group-hover:scale-110" />
           <h1 className="text-lg font-medium transition-transform duration-200 group-hover:scale-105">

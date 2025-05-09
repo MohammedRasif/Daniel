@@ -10,7 +10,7 @@ const Card = ({ children, className }) => (
 
 // Custom CardHeader Component
 const CardHeader = ({ children }) => (
-  <div className="px-6 py-4 border-b border-gray-300">{children}</div>
+  <div className=" py-4 border-b border-gray-300">{children}</div>
 );
 
 // Custom CardTitle Component
@@ -20,7 +20,7 @@ const CardTitle = ({ children }) => (
 
 // Custom CardContent Component
 const CardContent = ({ children, className }) => (
-  <div className={`p-6 ${className}`}>{children}</div>
+  <div className={`py-6 ${className}`}>{children}</div>
 );
 
 // Custom Input Component
@@ -30,7 +30,7 @@ const Input = ({ id, placeholder, value, onChange, className }) => (
     placeholder={placeholder}
     value={value}
     onChange={onChange}
-    className={`w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-[#20325A] ${className}`}
+    className={`w-full px-3 py-[10px] bg-white border border-gray-300 rounded-md focus:outline-none focus:border-[#20325A] ${className}`}
   />
 );
 
@@ -120,11 +120,11 @@ const BrandSetUp = () => {
         Brand Set Up
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {/* Basic Information Section */}
         <Card>
           <CardHeader>
-            <CardTitle>Basic information's</CardTitle>
+            <CardTitle>Basic Information</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="space-y-2">
@@ -140,11 +140,11 @@ const BrandSetUp = () => {
 
             <div className="space-y-2">
               <Label htmlFor="companyLogo">Upload company logo</Label>
-              <div className="flex items-center gap-2 bg-white border border-gray-300 rounded-md h-11">
+              <div className="flex items-center gap-2 bg-white border border-gray-300 rounded-md h-12">
                 <Button
                   variant="outline"
                   onClick={() => companyLogoInputRef.current?.click()}
-                  className="w-32 bg-gray-200 h-8 ml-2 cursor-pointer"
+                  className="w-32 bg-gray-200 h-9 ml-2 cursor-pointer"
                 >
                   <h1 className="-mt-[5px]">Choose file</h1>
                 </Button>
@@ -175,11 +175,11 @@ const BrandSetUp = () => {
 
             <div className="space-y-2">
               <Label htmlFor="profilePicture">Upload Profile picture</Label>
-              <div className="flex items-center gap-2 bg-white border border-gray-300 rounded-md h-11">
+              <div className="flex items-center gap-2 bg-white border border-gray-300 rounded-md h-12">
                 <Button
                   variant="outline"
                   onClick={() => profilePictureInputRef.current?.click()}
-                  className="w-32 bg-gray-200 h-8 ml-2 cursor-pointer"
+                  className="w-32 bg-gray-200 h-9 ml-2 cursor-pointer"
                 >
                   <h1 className="-mt-[5px]">Choose file</h1>
                 </Button>

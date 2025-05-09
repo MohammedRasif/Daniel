@@ -6,7 +6,7 @@ import { GiNetworkBars } from "react-icons/gi";
 export default function Preview() {
   return (
     <div className="h-full">
-      <div className=" h-[8%]">
+      <div className=" flex items-center justify-between h-[8%]">
         <div>
           <Link
             to="/dashboard/custom_app"
@@ -16,13 +16,16 @@ export default function Preview() {
             <p>Back</p>
           </Link>
         </div>
-        <h1 className="text-center text-2xl lg:text-3xl font-bold pb-6 md:pb-8">
+        <h1 className="text-2xl lg:text-3xl font-semibold pb-6 md:pb-8 text-gray-700">
           Apps preview
         </h1>
+        <div>
+
+        </div>
       </div>
-      <div className="flex flex-col md:flex-row gap-8 justify-center items-center max-h-screen overflow-x-hidden py-6 h-[92%]">
+      <div className="flex flex-col md:flex-row gap-8 justify-between items-center max-h-screen overflow-x-hidden py-6 h-[92%]">
         {/* Mobile Preview */}
-        <div className="lg:w-[350px] h-full border-2 border-gray-300 rounded-lg overflow-hidden shadow-md relative">
+        <div className="lg:w-[450px] h-full border-2 border-gray-300 rounded-lg overflow-hidden shadow-md relative">
           <div className="flex items-center justify-between ps-2 pe-6 absolute top-0 z-10 w-full bg-[#ffffff81]">
             <div>
               <p>9:41</p>
@@ -37,7 +40,7 @@ export default function Preview() {
         </div>
 
         {/* Desktop Preview */}
-        <div className="lg:w-[1024px] h-full border-2 border-gray-300 rounded-lg overflow-hidden shadow-md">
+        <div className="lg:w-[1024px] xl:w-full h-full border-2 border-gray-300 rounded-lg overflow-hidden shadow-md">
           <PreviewIframe />
         </div>
       </div>

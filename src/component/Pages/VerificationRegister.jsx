@@ -1,4 +1,4 @@
-import img from "../../image/umbrella-pool-chair.png";
+import img from "../../image/image.png";
 import img1 from "../../image/logo.png";
 import { useState, useEffect, useRef } from "react";
 

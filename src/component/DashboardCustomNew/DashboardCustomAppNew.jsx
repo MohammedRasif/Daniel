@@ -46,7 +46,7 @@ export default function DashboardCustomAppNew() {
         <p className="">Pricelist Information</p>
         <button
           onClick={() => setIsModalOpen(true)} // Open modal when clicked
-          className="flex items-center gap-2 rounded-2xl px-2 py-1 border hover:cursor-pointer"
+          className="flex items-center gap-2 rounded-md px-2 py-1 border hover:cursor-pointer"
         >
           <FaPlus />
           <span>Add Product</span>
@@ -98,7 +98,7 @@ export default function DashboardCustomAppNew() {
 
   return (
     <div className="w-full flex flex-col items-center justify-center">
-      <div className="w-full max-w-6xl">
+      <div className="w-full">
         <Title text={"Create Your Own Apps"} />
         <TitleSection text={"Select App Category"}>
           <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -128,7 +128,7 @@ export default function DashboardCustomAppNew() {
               {/* Previous Button */}
               <button
                 onClick={handlePreviousStep}
-                className="flex items-center justify-center gap-2 border-[#637186] border px-3 py-2 rounded-xl hover:cursor-pointer"
+                className="flex items-center justify-center gap-2 border-[#637186] border px-3 py-2 rounded-md hover:cursor-pointer"
                 disabled={currentStep === 0} // Disable if on the first step
               >
                 <FaArrowLeft />
@@ -138,7 +138,7 @@ export default function DashboardCustomAppNew() {
               {/* Next Button */}
               <button
                 onClick={handleNextStep}
-                className="flex items-center justify-center gap-2 border-[#637186] border px-3 py-2 rounded-xl hover:cursor-pointer"
+                className="flex items-center justify-center gap-2 border-[#637186] border px-3 py-2 rounded-md hover:cursor-pointer"
                 disabled={currentStep === steps.length - 1} // Disable if on the last step
               >
                 <span>Next</span>

@@ -22,19 +22,21 @@ const Modals = ({
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      className="fixed inset-0 bg-[#eceef15d] backdrop-blur-[3px] flex items-center justify-center z-50 max-h-[100vh] overflow-auto" // Adjust max-height to avoid full screen
+      className="fixed inset-0  backdrop-blur-[3px] flex items-center justify-center z-50 max-h-[100vh] overflow-auto " // Adjust max-height to avoid full screen
       overlayClassName="bg-gray-500 bg-opacity-50"
     >
-      <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-[45vh]">
         <div className="flex items-center justify-between mb-6">
           <button
-            className="text-gray-600 hover:text-gray-800"
+            className="text-gray-600 hover:text-gray-800 cursor-pointer"
             onClick={onRequestClose} // Close modal when clicked
           >
             <FiArrowLeft size={20} />
           </button>
           <div className="text-lg font-semibold text-gray-800">Add product</div>
-          <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
+          <div>
+
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -46,7 +48,7 @@ const Modals = ({
               value={productName}
               onChange={(e) => setProductName(e.target.value)}
               placeholder="Enter name"
-              className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#EB5A8E] "
               maxLength={10}
             />
           </div>
@@ -60,7 +62,7 @@ const Modals = ({
               id="ProductDescription"
               onChange={(e) => setProductDescription(e.target.value)}
               placeholder="Enter description"
-              className="w-full h-full min-h-[112px] p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#4E5C7B] focus:border-[#4E5C7B] placeholder-gray-400 resize-none"
+              className="w-full h-full min-h-[112px] p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#EB5A8E]  placeholder-gray-400 resize-none"
             />
           </div>
 
@@ -82,7 +84,7 @@ const Modals = ({
               value={productPrice}
               onChange={(e) => setProductPrice(e.target.value)}
               placeholder="Enter price"
-              className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#EB5A8E] "
             />
           </div>
 

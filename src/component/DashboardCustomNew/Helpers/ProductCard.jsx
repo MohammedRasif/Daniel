@@ -2,7 +2,7 @@ import React from "react";
 
 const ProductCard = ({ image, name, description, price }) => {
   return (
-    <div className="flex items-center bg-white rounded-lg shadow-md p-4 w-full max-w-3xl mx-auto hover:cursor-pointer">
+    <div className="flex items-center bg-white rounded-lg shadow-md p-4 w-full   hover:cursor-pointer">
       {/* Image */}
       <div className="w-16 h-16 mr-4">
         <img

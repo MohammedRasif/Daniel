@@ -14,56 +14,56 @@ import { Link } from "lucide-react";
 const Home = () => {
   const products = [
     {
-      image: "https://picsum.photos/200/300",
+      image: "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529168/samples/food/fish-vegetables.jpg",
       name: "Veggie Delight Wrap",
       description:
         "A refreshing wrap packed with crisp lettuce, tomatoes, cucumbers, and a tangy yogurt dressing.",
       price: "8.99$",
     },
     {
-      image: "https://picsum.photos/200/300",
+      image: "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529168/samples/people/kitchen-bar.jpg",
       name: "Spicy Beef Tacos",
       description:
         "Soft tacos filled with seasoned ground beef, fresh salsa, and a sprinkle of cheddar cheese.",
       price: "10.50$",
     },
     {
-      image: "https://picsum.photos/200/300",
+      image: "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529168/samples/food/pot-mussels.jpg",
       name: "Margherita Pizza",
       description:
         "Classic pizza with fresh basil, mozzarella, and a rich tomato sauce on a crispy crust.",
       price: "14.25$",
     },
     {
-      image: "https://picsum.photos/200/300",
+      image: "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529168/samples/animals/reindeer.jpg",
       name: "Grilled Salmon Bowl",
       description:
         "A healthy bowl with grilled salmon, quinoa, avocado, and a drizzle of soy-ginger glaze.",
       price: "16.75$",
     },
     {
-      image: "https://picsum.photos/200/300",
+      image: "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529168/samples/food/dessert.jpg",
       name: "BBQ Chicken Wings",
       description:
         "Juicy wings coated in a smoky BBQ sauce, served with a side of ranch dip.",
       price: "9.99$",
     },
     {
-      image: "https://picsum.photos/200/300",
+      image: "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529167/samples/ecommerce/analog-classic.jpg",
       name: "Mango Smoothie",
       description:
         "A tropical blend of fresh mango, yogurt, and a hint of honey for a refreshing drink.",
       price: "5.50$",
     },
     {
-      image: "https://picsum.photos/200/300",
+      image: "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529170/samples/landscapes/nature-mountains.jpg",
       name: "Caesar Salad",
       description:
         "Crisp romaine lettuce tossed with Caesar dressing, croutons, and shaved parmesan.",
       price: "7.25$",
     },
     {
-      image: "https://picsum.photos/200/300",
+      image: "https://res.cloudinary.com/dfsu0cuvb/image/upload/v1737529177/samples/breakfast.jpg",
       name: "Chocolate Lava Cake",
       description:
         "Warm chocolate cake with a gooey center, served with a scoop of vanilla ice cream.",
@@ -96,12 +96,12 @@ const Home = () => {
       /> */}
       <HeroSection />
       <div className="flex justify-center flex-col items-center py-8 px-4 md:px-16">
-        <div>
+        <div className=" w-full">
           <div>
             <h1 className="text-2xl text-[#444863] mb-4">{app?.name}</h1>
             <p className="text-[#828396]">{app?.description}</p>
           </div>
-          <div className="w-full max-w-7xl mx-auto mb-6  my-10">
+          <div className="bg-white rounded-lg shadow-md p-4 w-full mx-auto mb-6 md:10">
             <div className="flex flex-col sm:flex-row">
               {/* Contact Details */}
               <div className="mb-4 sm:mb-0 flex-1/2">
@@ -161,8 +161,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <h1 className="text-2xl w-full max-w-7xl mb-8">List of all Products</h1>
-        <div className="px-2 md:px-10 grid grid-cols-2 lg:grid-cols-4 gap-4 items-center justify-items-center max-w-8xl">
+        <h1 className="text-2xl w-full max-w-8xl mb-8 font-semibold">List of all Products</h1>
+        <div className="md:px-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-center justify-items-center w-full">
           {products.map((product, key) => (
             <ProductCard key={key} product={product} />
           ))}

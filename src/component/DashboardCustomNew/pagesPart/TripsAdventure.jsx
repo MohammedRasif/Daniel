@@ -53,7 +53,7 @@ export default function TripsAdventure() {
         </div>
         <div
           onClick={addImageInput}
-          className="flex items-center gap-2 text-[#374055] border border-[#374055] p-1 rounded-xl hover:cursor-pointer"
+          className="flex items-center gap-2 text-[#374055] border border-[#374055] p-1 rounded-md hover:cursor-pointer"
         >
           <FaPlus />
           <p>Add image</p>
@@ -131,7 +131,7 @@ export default function TripsAdventure() {
           ))}
           <div className="w-full flex items-center justify-center mt-8">
             <button
-              className="border px-12 font-bold py-2 rounded-xl bg-[#eb5a8e] text-white hover:cursor-pointer "
+              className="border px-12 font-bold py-2 rounded-md bg-[#eb5a8e] text-white hover:cursor-pointer "
               type="submit"
             >
               Submit

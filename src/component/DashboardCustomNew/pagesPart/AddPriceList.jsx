@@ -8,7 +8,7 @@ export default function AddPriceList() {
   const [email, setEmail] = useState("");
 
   return (
-    <div className="p-4 w-full max-w-6xl mx-auto">
+    <div className="w-full mx-auto py-5">
       <form className="space-y-6">
         {/* Title & Contact Number */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -44,7 +44,7 @@ export default function AddPriceList() {
               name="description"
               id="description"
               placeholder="Enter a short description"
-              className="w-full h-full min-h-[112px] p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#4E5C7B] focus:border-[#4E5C7B] placeholder-gray-400 resize-none"
+              className="w-full h-full min-h-[112px] bg-white p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#4E5C7B] focus:border-[#4E5C7B] placeholder-gray-400 resize-none"
             ></textarea>
           </div>
 

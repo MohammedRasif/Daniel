@@ -84,7 +84,7 @@ const Marketing = () => {
 
   // Close menu when clicking outside
   useEffect(() => {
-    function handleClickOutside(event) {
+    const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setActiveMenu(null)
       }
@@ -97,27 +97,27 @@ const Marketing = () => {
   }, [])
 
   // Handle search functionality
-  const filteredData = marketingData.filter((item) => item.appNo.toLowerCase().includes(searchTerm.toLowerCase()))
+  const filteredData = marketingData.filter((item) =>
+    item.appNo.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
   // Toggle action menu
   const toggleMenu = (id, e) => {
     e.stopPropagation()
-    if (activeMenu === id) {
-      setActiveMenu(null)
-    } else {
-      setActiveMenu(id)
-    }
+    setActiveMenu(activeMenu === id ? null : id)
   }
 
   // Handle edit action
-  const handleEdit = (id) => {
+  const handleEdit = (id, e) => {
+    e.stopPropagation()
     console.log("Edit item with id:", id)
     setActiveMenu(null)
     // Add your edit logic here
   }
 
   // Handle delete confirmation
-  const handleDeleteClick = (id) => {
+  const handleDeleteClick = (id, e) => {
+    e.stopPropagation()
     setItemToDelete(id)
     setShowDeleteConfirm(true)
     setActiveMenu(null)
@@ -144,7 +144,7 @@ const Marketing = () => {
   }
 
   return (
-    <div className="bg-gray-50 ">
+    <div className="bg-gray-50">
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-3xl font-medium text-gray-700">Marketing</h1>
@@ -173,7 +173,7 @@ const Marketing = () => {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-lg shadow overflow-hidden">
+      <div className="bg-white rounded-lg shadow">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-100">
             <tr>
@@ -206,7 +206,7 @@ const Marketing = () => {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.category}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                  <div className="relative inline-block" ref={menuRef}>
+                  <div className="relative inline-block">
                     <button
                       onClick={(e) => toggleMenu(item.id, e)}
                       className="text-gray-400 hover:text-gray-600 cursor-pointer"
@@ -214,16 +214,16 @@ const Marketing = () => {
                       <FaEllipsisV />
                     </button>
                     {activeMenu === item.id && (
-                      <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 border border-gray-200">
+                      <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-20 border border-gray-200">
                         <div className="py-1">
                           <button
-                            onClick={() => handleEdit(item.id)}
+                            onClick={(e) => handleEdit(item.id, e)}
                             className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left cursor-pointer"
                           >
                             <FaEdit className="mr-2" /> Edit
                           </button>
                           <button
-                            onClick={() => handleDeleteClick(item.id)}
+                            onClick={(e) => handleDeleteClick(item.id, e)}
                             className="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100 w-full text-left cursor-pointer"
                           >
                             <FaTrash className="mr-2" /> Delete
