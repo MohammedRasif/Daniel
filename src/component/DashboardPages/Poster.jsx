@@ -3,29 +3,37 @@ import { FaArrowLeft, FaDownload, FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import html2canvas from "html2canvas";
-
+import { toPng } from "html-to-image";
 const Poster = () => {
   // Ref to capture the poster content
   const posterRef = useRef(null);
 
   // Handle download as image
-  const handleDownload = async () => {
-    if (posterRef.current) {
-      try {
-        const canvas = await html2canvas(posterRef.current, {
-          useCORS: true, // Handle cross-origin images
-          scale: 2, // Increase resolution
-          logging: true, // Enable logging for debugging
-          backgroundColor: "#ffffff", // Set white background to avoid transparency issues
-        });
-        const link = document.createElement("a");
-        link.href = canvas.toDataURL("image/png");
-        link.download = "poster.png";
-        link.click();
-      } catch (error) {
-        console.error("Error generating image:", error);
-        alert("Failed to download poster. Check console for details.");
-      }
+  const handleDownload = async (e) => {
+    e.stopPropagation(); // Prevent popup from closing
+    const targetRef = popup.type === "poster" ? posterRef : popupRef;
+    if (!posterRef.current) {
+      console.warn("posterRef not found");
+      return;
+    }
+
+    try {
+      const dataUrl = await toPng(posterRef.current, {
+        cacheBust: true,
+        backgroundColor: "#ffffff", // avoids transparency
+        style: {
+          // Forces fallback in case tailwind injects unsupported CSS
+          color: "black",
+        },
+      });
+
+      const link = document.createElement("a");
+      link.download = "poster.png";
+      link.href = dataUrl;
+      link.click();
+    } catch (error) {
+      console.error("Image generation failed:", error);
+      alert("Failed to download the image. Check the console.");
     }
   };
 
@@ -48,9 +56,7 @@ const Poster = () => {
             <FaDownload />
             <p>Download</p>
           </button>
-          <button
-            className="flex items-center justify-center gap-2 text-gray-500 border border-gray-400 w-fit px-2 py-1 rounded hover:bg-gray-200"
-          >
+          <button className="flex items-center justify-center gap-2 text-gray-500 border border-gray-400 w-fit px-2 py-1 rounded hover:bg-gray-200">
             <FaEdit />
             <p>Edit</p>
           </button>

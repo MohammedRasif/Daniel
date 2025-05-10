@@ -4,6 +4,7 @@ import { FaCloudDownloadAlt, FaEdit } from "react-icons/fa";
 import { Phone, Mail, Globe, MapPin } from "lucide-react";
 import html2canvas from "html2canvas";
 import { Link } from "react-router-dom";
+import { toPng } from "html-to-image";
 
 const CustomApp = () => {
   const popupRef = useRef(null); // Reference to the entire popup content
@@ -73,28 +74,28 @@ const CustomApp = () => {
   const handleDownload = async (e) => {
     e.stopPropagation(); // Prevent popup from closing
     const targetRef = popup.type === "poster" ? posterRef : popupRef;
-    if (targetRef.current) {
-      try {
-        // Capture the content as a canvas
-        const canvas = await html2canvas(targetRef.current, {
-          scale: 2, // Higher resolution
-          useCORS: true, // Handle cross-origin images
-          backgroundColor: "#ffffff", // White background
-          logging: true, // Debug logs
-          allowTaint: false, // Prevent tainted canvas
-        });
+    if (!posterRef.current) {
+      console.warn("posterRef not found");
+      return;
+    }
 
-        // Convert canvas to PNG image
-        const image = canvas.toDataURL("image/png");
-        const link = document.createElement("a");
-        link.href = image;
-        link.download = "popup.png"; // File name
-        link.click();
-      } catch (error) {
-        console.error("Error downloading popup:", error);
-      }
-    } else {
-      console.warn("Popup reference not found");
+    try {
+      const dataUrl = await toPng(posterRef.current, {
+        cacheBust: true,
+        backgroundColor: "#ffffff", // avoids transparency
+        style: {
+          // Forces fallback in case tailwind injects unsupported CSS
+          color: "black",
+        },
+      });
+
+      const link = document.createElement("a");
+      link.download = "poster.png";
+      link.href = dataUrl;
+      link.click();
+    } catch (error) {
+      console.error("Image generation failed:", error);
+      alert("Failed to download the image. Check the console.");
     }
   };
 
@@ -229,11 +230,17 @@ const CustomApp = () => {
 
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <span className="text-gray-700">1. Link of the Custom Apps</span>
-                        <button className="px-3 py-1 text-gray-500">Copy</button>
+                        <span className="text-gray-700">
+                          1. Link of the Custom Apps
+                        </span>
+                        <button className="px-3 py-1 text-gray-500">
+                          Copy
+                        </button>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-gray-700">2. Download poster</span>
+                        <span className="text-gray-700">
+                          2. Download poster
+                        </span>
                         <button
                           onClick={() => handlePosterClick(popup.cardId)}
                           className="px-3 py-1 underline"
@@ -261,7 +268,9 @@ const CustomApp = () => {
                     <h3 className="text-xl font-semibold text-gray-700 mb-4">
                       Preview: {card.title}
                     </h3>
-                    <p className="text-gray-500 mb-6">Preview the app content.</p>
+                    <p className="text-gray-500 mb-6">
+                      Preview the app content.
+                    </p>
                     <div className="flex gap-3 mb-4">
                       <Link
                         to="/dashboard/preview"
@@ -309,7 +318,10 @@ const CustomApp = () => {
                       </div>
 
                       {/* Main Poster Content */}
-                      <div className="flex flex-col md:flex-row" ref={posterRef}>
+                      <div
+                        className="flex flex-col md:flex-row"
+                        ref={posterRef}
+                      >
                         {/* Left content section */}
                         <div className="w-full md:w-1/2 p-8 z-10">
                           {/* Logo */}
@@ -330,7 +342,9 @@ const CustomApp = () => {
                                 />
                               </svg>
                             </div>
-                            <span className="text-2xl font-bold text-[#1C2526]">WePro</span>
+                            <span className="text-2xl font-bold text-[#1C2526]">
+                              WePro
+                            </span>
                           </div>
 
                           {/* Main title */}
@@ -340,11 +354,13 @@ const CustomApp = () => {
 
                           {/* Description text */}
                           <p className="text-gray-500 mb-12">
-                            Lorem ipsum dolor sit amet consectetur. Facilisi suspendisse elit vitae
-                            quis sed pulvinar facilisi ipsum viverra. Id vestibulum quisque in neque.
-                            Scelerisque ornare erat urna massa. Phasellus arcu condimentum
-                            pellentesque nibh senectus vulputate malesuada dictumst felis. nibh
-                            senectus vulputate malesuada dictumst felis. nibh senectus vulputate
+                            Lorem ipsum dolor sit amet consectetur. Facilisi
+                            suspendisse elit vitae quis sed pulvinar facilisi
+                            ipsum viverra. Id vestibulum quisque in neque.
+                            Scelerisque ornare erat urna massa. Phasellus arcu
+                            condimentum pellentesque nibh senectus vulputate
+                            malesuada dictumst felis. nibh senectus vulputate
+                            malesuada dictumst felis. nibh senectus vulputate
                             malesuada dictumst felis.
                           </p>
 
@@ -356,26 +372,36 @@ const CustomApp = () => {
                             <div className="space-y-2">
                               <div className="flex items-center">
                                 <Phone className="h-4 w-4 text-gray-500 mr-2" />
-                                <span className="text-gray-500">0123456789</span>
+                                <span className="text-gray-500">
+                                  0123456789
+                                </span>
                               </div>
                               <div className="flex items-center">
                                 <Mail className="h-4 w-4 text-gray-500 mr-2" />
-                                <span className="text-gray-500">youremail@yahoo.com</span>
+                                <span className="text-gray-500">
+                                  youremail@yahoo.com
+                                </span>
                               </div>
                               <div className="flex items-center">
                                 <Globe className="h-4 w-4 text-gray-500 mr-2" />
-                                <span className="text-gray-500">www.yourweb.com</span>
+                                <span className="text-gray-500">
+                                  www.yourweb.com
+                                </span>
                               </div>
                               <div className="flex items-center">
                                 <MapPin className="h-4 w-4 text-gray-500 mr-2" />
-                                <span className="text-gray-500">Banasree, Dhaka, Bangladesh.</span>
+                                <span className="text-gray-500">
+                                  Banasree, Dhaka, Bangladesh.
+                                </span>
                               </div>
                             </div>
                           </div>
 
                           {/* QR code and App link */}
                           <div>
-                            <h2 className="text-xl font-semibold text-[#EC4899] mb-4">App link</h2>
+                            <h2 className="text-xl font-semibold text-[#EC4899] mb-4">
+                              App link
+                            </h2>
                             <div className="flex items-center">
                               <div className="mr-4">
                                 <img
